@@ -19,10 +19,10 @@ export function activate(context: vscode.ExtensionContext) {
         text = text.replace(/(\*)|(\*\*)|(\/\/)|(<\/)|(>)|(<)|(\$)|(\/\*)/g, '');
         console.log(text);
 
-        translate(text, { from: "en", to: 'zh-cn' }).then(res => {
+        translate(text, { from: "en", to: 'zh-cn' }).then((res: any) => {
             console.log(res.text);
             vscode.window.showInformationMessage(res.text);
-        }).catch(err => {
+        }).catch(() => {
             vscode.window.showInformationMessage("翻译君去找希城小姐姐了orz");
         });
     })
